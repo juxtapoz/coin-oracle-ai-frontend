@@ -1,0 +1,72 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+// Define custom palettes
+$dark-primary-palette: mat.define-palette(mat.$indigo-palette);
+$dark-accent-palette: mat.define-palette(mat.$teal-palette);
+$dark-warn-palette: mat.define-palette(mat.$red-palette);
+
+// Create the theme
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $dark-primary-palette,
+    accent: $dark-accent-palette,
+    warn: $dark-warn-palette,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Custom background and foreground colors
+$custom-background: (
+  status-bar: black,
+  app-bar:    #1a1a1a,
+  background: #1a1a1a,
+  hover:      rgba(white, 0.04),
+  card:       #2a2a2a,
+  dialog:     #2a2a2a,
+  disabled-button: rgba(white, 0.12),
+  raised-button: #2a2a2a,
+  focused-button: rgba(white, 0.12),
+  selected-button: #2a2a2a,
+  selected-disabled-button: #2a2a2a,
+  disabled-button-toggle: black,
+  unselected-chip: #2a2a2a,
+  disabled-list-option: black,
+  tooltip: #2a2a2a,
+);
+
+$custom-foreground: (
+  base:              white,
+  divider:           rgba(white, 0.12),
+  dividers:          rgba(white, 0.12),
+  disabled:          rgba(white, 0.5),
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     rgba(white, 0.5),
+  elevation:         black,
+  hint-text:         rgba(white, 0.5),
+  secondary-text:    rgba(white, 0.7),
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+// Override the default background/foreground
+$theme-colors: map.get($dark-theme, color);
+$theme-colors: map.merge(
+  $theme-colors,
+  (
+    background: $custom-background,
+    foreground: $custom-foreground,
+  )
+);
+
+$dark-theme: map.merge(
+  $dark-theme,
+  (
+    color: $theme-colors,
+  )
+); 

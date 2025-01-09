@@ -1,0 +1,22 @@
+.main-content {
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 30%, rgba(100, 100, 255, 0.1) 0%, transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(100, 255, 100, 0.1) 0%, transparent 60%);
+    opacity: 0.3;
+    z-index: 0;
+  }
+}

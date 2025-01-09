@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="header">
+  <div class="branding">
+    <h1 class="title">{{ title }}</h1>
+    <p class="tagline">{{ tagline }}</p>
+  </div>
+  <div class="nav-links">
+    <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a mat-button routerLink="/swarm" routerLinkActive="active">Swarm</a>
+    <a mat-button routerLink="/report" routerLinkActive="active">Report</a>
+  </div>
+</mat-toolbar>

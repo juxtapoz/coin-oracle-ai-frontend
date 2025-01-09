@@ -1,0 +1,47 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>Intelligent Token Analysis</h1>
+    <p class="subtitle">Make informed decisions with AI-powered cryptocurrency analysis</p>
+    
+    <!-- Feature Cards -->
+    <div class="feature-cards">
+      <mat-card *ngFor="let feature of features" class="feature-card">
+        <mat-card-header>
+          <mat-icon class="feature-icon">{{feature.icon}}</mat-icon>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{feature.title}}</h2>
+          <p>{{feature.description}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Token Search Section -->
+  <section class="search-section">
+    <h2>Analyze Your Token</h2>
+    <div class="search-container">
+      <!-- Blockchain Selector -->
+      <button class="blockchain-select">
+        <mat-icon class="chain-icon" svgIcon="solana-icon"></mat-icon>
+        <span>{{blockchains[0].symbol}}</span>
+        <mat-icon class="dropdown-icon">expand_more</mat-icon>
+      </button>
+
+      <!-- Token Address Input -->
+      <div class="token-search">
+        <input [(ngModel)]="tokenAddress" 
+               (input)="onTokenAddressInput($event)"
+               placeholder="Enter token address"
+               class="token-input">
+        <mat-icon class="search-icon">search</mat-icon>
+      </div>
+    </div>
+
+    <!-- Token Results List - We'll add this later -->
+    <div class="results-list">
+      <!-- Results will be displayed here -->
+    </div>
+  </section>
+</div>
