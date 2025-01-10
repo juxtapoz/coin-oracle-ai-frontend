@@ -25,23 +25,14 @@
       <!-- Blockchain Selector -->
       <button class="blockchain-select">
         <mat-icon class="chain-icon" svgIcon="solana-icon"></mat-icon>
-        <span>{{blockchains[0].symbol}}</span>
+        <span>SOL</span>
         <mat-icon class="dropdown-icon">expand_more</mat-icon>
       </button>
 
-      <!-- Token Address Input -->
-      <div class="token-search">
-        <input [(ngModel)]="tokenAddress" 
-               (input)="onTokenAddressInput($event)"
-               placeholder="Enter token address"
-               class="token-input">
-        <mat-icon class="search-icon">search</mat-icon>
+      <!-- Token Search Component -->
+      <div class="token-search-wrapper">
+        <app-token-search></app-token-search>
       </div>
-    </div>
-
-    <!-- Token Results List - We'll add this later -->
-    <div class="results-list">
-      <!-- Results will be displayed here -->
     </div>
   </section>
 </div>

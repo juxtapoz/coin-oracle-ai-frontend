@@ -1,0 +1,138 @@
+.token-search-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.token-search-field {
+  width: 100%;
+
+  ::ng-deep {
+    // Remove default Material styling
+    .mdc-text-field {
+      background-color: transparent !important;
+      padding: 0 !important;
+    }
+
+    .mdc-line-ripple {
+      display: none !important;
+    }
+
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none !important;
+    }
+
+    .mat-mdc-form-field-label-wrapper {
+      display: none !important;
+    }
+
+    .mat-mdc-form-field-infix {
+      padding: 0 !important;
+      height: 42px !important;
+      min-height: unset !important;
+    }
+
+    .mat-mdc-text-field-wrapper {
+      padding: 0 !important;
+      height: 42px !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 21px !important;
+      overflow: hidden !important;
+    }
+
+    .mat-mdc-form-field-flex {
+      height: 42px !important;
+      padding: 0 16px !important;
+      align-items: center !important;
+    }
+
+    input.mat-mdc-input-element {
+      color: white !important;
+      height: 42px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-size: 14px !important;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5) !important;
+      }
+    }
+  }
+}
+
+.search-spinner {
+  margin-right: 8px;
+}
+
+// Autocomplete panel styling
+::ng-deep {
+  .mat-mdc-autocomplete-panel {
+    background: #1F2937 !important;
+    border-radius: 12px !important;
+    margin-top: 8px !important;
+    
+    .mat-mdc-option {
+      color: white !important;
+      min-height: 72px !important;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
+    }
+  }
+}
+
+.token-option {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  height: 100%;
+}
+
+.token-icon {
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px;
+}
+
+.token-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.token-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.exchange {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.85em;
+  color: #666;
+  margin-left: 8px;
+  padding: 2px 6px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.exchange-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  border-radius: 2px;
+}
+
+.token-details {
+  font-size: 0.85em;
+  color: #666;
+  line-height: 1.2;
+} 

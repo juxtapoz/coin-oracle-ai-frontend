@@ -66,7 +66,8 @@
               "buildTarget": "coin-oracle-ai-frontend:build:production"
             },
             "development": {
-              "buildTarget": "coin-oracle-ai-frontend:build:development"
+              "buildTarget": "coin-oracle-ai-frontend:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

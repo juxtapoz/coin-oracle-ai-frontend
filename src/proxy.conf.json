@@ -1,0 +1,13 @@
+{
+  "/solscan": {
+    "target": "https://api.solscan.io",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/solscan": "/v2"
+    },
+    "headers": {
+      "Origin": "https://solscan.io"
+    }
+  }
+} 

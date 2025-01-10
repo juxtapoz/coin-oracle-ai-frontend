@@ -2,11 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+import { TokenSearchComponent } from '../../components/token-search/token-search.component';
 
 const SOLANA_ICON = `
 <svg width="100%" height="100%" viewBox="0 0 397 311" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -31,11 +28,7 @@ interface Blockchain {
     CommonModule,
     MatCardModule,
     MatIconModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule
+    TokenSearchComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -43,19 +36,19 @@ interface Blockchain {
 export class HomeComponent {
   features = [
     {
-      title: 'AI-Powered Analysis',
-      description: 'Advanced artificial intelligence agents analyze token metrics, social signals, and blockchain data to provide comprehensive risk assessment.',
-      icon: 'psychology'
-    },
-    {
-      title: 'Multi-Chain Support',
-      description: 'Support for multiple blockchains including Ethereum, BSC, and Solana, with real-time data integration and analysis.',
-      icon: 'link'
-    },
-    {
+      icon: 'security',
       title: 'Risk Assessment',
-      description: 'Detailed risk analysis including creator wallet assessment, contract audits, and social sentiment analysis.',
-      icon: 'security'
+      description: 'Advanced AI analysis of token contracts and creator wallets to identify potential risks.'
+    },
+    {
+      icon: 'trending_up',
+      title: 'Market Analysis',
+      description: 'Comprehensive market data analysis including liquidity, volume, and price trends.'
+    },
+    {
+      icon: 'groups',
+      title: 'Social Insights',
+      description: 'Analysis of social media sentiment and community engagement metrics.'
     }
   ];
 
@@ -68,9 +61,6 @@ export class HomeComponent {
     }
   ];
 
-  selectedBlockchain: string = 'solana';
-  tokenAddress: string = '';
-
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
@@ -79,15 +69,5 @@ export class HomeComponent {
       'solana-icon',
       this.domSanitizer.bypassSecurityTrustHtml(SOLANA_ICON)
     );
-  }
-
-  onBlockchainChange(blockchainId: string): void {
-    this.selectedBlockchain = blockchainId;
-    this.tokenAddress = '';
-  }
-
-  onTokenAddressInput(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    this.tokenAddress = input.value;
   }
 }

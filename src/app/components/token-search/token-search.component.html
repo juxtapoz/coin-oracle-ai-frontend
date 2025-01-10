@@ -1,0 +1,32 @@
+<div class="token-search-container">
+  <mat-form-field appearance="fill" class="token-search-field">
+    <input matInput
+           [formControl]="searchControl"
+           [matAutocomplete]="auto"
+           placeholder="Search for a token (e.g., Hjw6bE...)">
+    <mat-spinner *ngIf="isLoading" diameter="20" class="search-spinner"></mat-spinner>
+  </mat-form-field>
+
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onTokenSelected($event)">
+    <mat-option *ngFor="let token of searchResults$ | async" [value]="token">
+      <div class="token-option">
+        <img [src]="token.tokenIcon" class="token-icon" [alt]="token.tokenSymbol">
+        <div class="token-info">
+          <div class="token-name">
+            {{token.tokenName}} ({{token.tokenSymbol}}) 
+            <span class="exchange">
+              <img [src]="token.exchangeLogo" class="exchange-icon" [alt]="token.exchange">
+              {{token.exchange}}
+            </span>
+          </div>
+          <div class="token-details">
+            Price: ${{token.price.toFixed(4)}} | 
+            MCap: ${{token.marketCap.toLocaleString()}} | 
+            FDV: ${{token.fullyDilutedValue.toLocaleString()}} | 
+            Vol: ${{token.volume24h.toLocaleString()}}
+          </div>
+        </div>
+      </div>
+    </mat-option>
+  </mat-autocomplete>
+</div> 
