@@ -1,5 +1,5 @@
 .main-content {
-  min-height: 100vh;
+  min-height: calc(100vh - 80px - 500px);
   padding: 20px;
   background-color: #1a1a1a;
   color: #ffffff;
@@ -18,5 +18,57 @@
       radial-gradient(circle at 70% 70%, rgba(100, 255, 100, 0.1) 0%, transparent 60%);
     opacity: 0.3;
     z-index: 0;
+  }
+}
+
+.neural-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.neural-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(0, 255, 195, 0.5);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: float 20s infinite linear;
+
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      $size: random(4) + 1px;
+      width: $size;
+      height: $size;
+      left: random(100) * 1%;
+      top: random(100) * 1%;
+      animation-delay: random(20) * -1s;
+      animation-duration: (random(20) + 15) * 1s;
+      opacity: random(60) * 0.01;
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100px, 100px);
+  }
+  50% {
+    transform: translate(0, 200px);
+  }
+  75% {
+    transform: translate(-100px, 100px);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
