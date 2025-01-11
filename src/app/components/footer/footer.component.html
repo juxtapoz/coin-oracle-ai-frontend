@@ -1,0 +1,70 @@
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Branding Section -->
+    <div class="footer-section branding">
+      <div class="logo">
+        <span class="brain-icon"></span>
+        <span class="coin">COIN</span>
+        <span class="oracle">ORACLE</span>
+        <span class="ai">AI</span>
+      </div>
+      <p class="description">
+        Advanced AI-powered cryptocurrency analysis platform for informed trading decisions.
+      </p>
+      <div class="social-links">
+        <a *ngFor="let social of socialLinks"
+           [href]="social.url"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="social-icon"
+           [attr.aria-label]="social.label">
+          <mat-icon [svgIcon]="social.icon"></mat-icon>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="footer-section links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li *ngFor="let link of quickLinks">
+          <a [routerLink]="link.route">{{ link.text }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Resources Section -->
+    <div class="footer-section resources">
+      <h3>Resources</h3>
+      <ul>
+        <li *ngFor="let resource of resources">
+          <a [routerLink]="resource.url">{{ resource.text }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="footer-section newsletter">
+      <h3>Stay Updated</h3>
+      <p>Subscribe to our newsletter for the latest updates and insights.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
+        <button mat-flat-button color="accent">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-content">
+      <p class="copyright">
+        © {{currentYear}} Coin Oracle AI. All rights reserved.
+      </p>
+      <div class="bottom-links">
+        <a routerLink="/terms">Terms</a>
+        <a routerLink="/privacy">Privacy</a>
+        <a routerLink="/cookies">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
